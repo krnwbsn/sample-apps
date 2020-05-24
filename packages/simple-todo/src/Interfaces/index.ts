@@ -1,5 +1,5 @@
 export interface ITodo {
-  id: string;
+  id: number;
   text: string;
   isCompleted: boolean;
 }
@@ -7,10 +7,10 @@ export interface ITodo {
 export interface ITodoItem {
   handleUpdate: (
     event: React.ChangeEvent<HTMLInputElement>,
-    id: string
+    id: number
   ) => void;
-  handleRemove: (id: string) => void;
-  handleComplete: (id: string) => void;
+  handleRemove: (id: number) => void;
+  handleComplete: (id: number) => void;
   handleBlur: (event: React.ChangeEvent<HTMLInputElement>) => void;
   todo: ITodo;
 }
@@ -18,10 +18,15 @@ export interface ITodoItem {
 export interface ITodoList {
   handleUpdate: (
     event: React.ChangeEvent<HTMLInputElement>,
-    id: string
+    id: number
   ) => void;
-  handleRemove: (id: string) => void;
-  handleComplete: (id: string) => void;
+  handleRemove: (id: number) => void;
+  handleComplete: (id: number) => void;
   handleBlur: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  todo: ITodo[];
+  todos: ITodo[];
+}
+
+export interface ITodoForm {
+  todos: ITodo[];
+  handleCreate: (todo: ITodo) => void;
 }

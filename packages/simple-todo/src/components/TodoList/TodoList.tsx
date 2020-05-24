@@ -1,13 +1,14 @@
-import * as React from "react";
+import React from "react";
 import { ITodoList } from "../../Interfaces";
 import TodoItem from "../TodoItem";
+import { Row, List } from "antd";
 
 const TodoList = (props: ITodoList) => {
   return (
-    <div>
-      <ul>
-        {props.todo.map((todo) => (
-          <li key={todo.id}>
+    <Row className="todo-list">
+      <List>
+        {props.todos.map((todo) => (
+          <List.Item key={todo.id}>
             <TodoItem
               todo={todo}
               handleUpdate={props.handleUpdate}
@@ -15,10 +16,10 @@ const TodoList = (props: ITodoList) => {
               handleComplete={props.handleComplete}
               handleBlur={props.handleBlur}
             />
-          </li>
+          </List.Item>
         ))}
-      </ul>
-    </div>
+      </List>
+    </Row>
   );
 };
 
